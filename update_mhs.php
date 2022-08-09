@@ -1,5 +1,6 @@
 <?php
 require_once 'config/koneksi.php';
+require_once 'config/session.php';
 
 $nim = $_POST['nim'];
 $nama = $_POST['nama'];
@@ -13,11 +14,11 @@ $simpan = mysqli_query($con, "UPDATE mahasiswa SET nama = '$nama', jurusan = '$j
 if ($simpan) {
     echo "<script>
             alert('Data Berhasil diubah');
-            window.location.href = 'index.php';
+            window.location.href = 'mahasiswa.php';
     </script>";
 } else {
     echo "<script>
             alert('terjadi kesalahan');
-            window.location.href = 'index.php';
+            window.location.href = 'mahasiswa.php';
     </script>";
 }

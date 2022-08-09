@@ -1,5 +1,6 @@
 <?php
 require_once 'config/koneksi.php';
+require_once 'config/session.php';
 $nim = $_GET['nim'];
 $cari = mysqli_query($con, "SELECT * FROM mahasiswa WHERE nim = '$nim'");
 $row = mysqli_fetch_array($cari);
@@ -21,6 +22,7 @@ $row = mysqli_fetch_array($cari);
 </head>
 
 <body>
+    <?php require_once 'config/menu.php'; ?>
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-12">
@@ -53,7 +55,7 @@ $row = mysqli_fetch_array($cari);
                                 <input type="text" name="alamat" class="form-control" value="<?= $row['alamat'] ?>">
                             </div>
                             <div class="mb-2">
-                                <a href="index.php" class="btn btn-secondary">Close</a>
+                                <a href="mahasiswa.php" class="btn btn-secondary">Close</a>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
